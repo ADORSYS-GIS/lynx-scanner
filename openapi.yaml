@@ -1,0 +1,25 @@
+openapi: 3.0.3
+info:
+  title: Lynx Scanner
+  description: Lynx Scanner API
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:{port}'
+    description: Local server
+    variables:
+      port:
+        default: "8080"
+  - url: 'https://{stage}.lynx.ssegning.com'
+    description: Production server
+    variables:
+      stage:
+        default: "dev"
+        enum:
+          - dev
+          - api
+
+tags: []
+
+paths: {}
+
+components: {}
