@@ -8,12 +8,12 @@ servers:
     description: Local server
     variables:
       port:
-        default: "8080"
+        default: '8080'
   - url: 'https://{stage}.lynx.ssegning.com'
     description: Production server
     variables:
       stage:
-        default: "dev"
+        default: 'dev'
         enum:
           - dev
           - api
