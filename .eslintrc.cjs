@@ -18,13 +18,22 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:prettier/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: [
+    'dist',
+    '.eslintrc.cjs',
+    'node_modules',
+    'docs/gen',
+    '.idea',
+  ],
   plugins: ['react', 'react-refresh', 'react-hooks', '@typescript-eslint'],
   rules: {
     'react-refresh/only-export-components': [
       'warn',
-      { allowConstantExport: true },
+      {
+        allowConstantExport: true,
+      },
     ],
+    'react/react-in-jsx-scope': 'off',
   },
   settings: {
     react: {
