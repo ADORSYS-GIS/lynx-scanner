@@ -3,9 +3,6 @@
   "entryPoints": ["src/app.tsx"],
   "out": "docs/gen",
   "basePath": ".",
-  "plugin": [
-    "typedoc-plugin-mdn-links",
-    "typedoc-plugin-markdown"
-  ],
+  "plugin": ["typedoc-plugin-mdn-links", "typedoc-plugin-markdown"],
   "name": "Lynx Scanner"
 }
