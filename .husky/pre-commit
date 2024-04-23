@@ -1,2 +1,1 @@
-yarn eslint
-yarn prettier
+lint-staged
