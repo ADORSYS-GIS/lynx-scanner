@@ -1,15 +1,12 @@
-import { useState } from 'react';
+import { JSX, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
-import './App.scss';
+import './app.scss';
 
 /**
- * Calculates the square root of a number.
- *
- * @param x the number to calculate the root of.
- * @returns the square root if `x` is non-negative or `NaN` if `x` is negative.
+ * The main application component.
  */
-export function App() {
+export function App(): JSX.Element {
   const [count, setCount] = useState(0);
 
   return (
