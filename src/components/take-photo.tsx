@@ -1,7 +1,7 @@
 import React from 'react';
 
-const takePhoto: React.FC = () => {
+const TakePhoto: React.FC = () => {
   return <h2>Take a photo</h2>;
 }
 
-export default takePhoto;
+export default TakePhoto;
