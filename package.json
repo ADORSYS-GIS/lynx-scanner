@@ -44,11 +44,7 @@
     "vite-plugin-eslint": "^1.8.1"
   },
   "lint-staged": {
-    "*.ts": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.tsx": [
+    "*.{ts,tsx,cjs,svg,json}": [
       "eslint --fix",
       "prettier --write"
     ]
