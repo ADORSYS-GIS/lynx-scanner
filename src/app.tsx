@@ -2,7 +2,6 @@ import { JSX } from 'react';
 import './app.scss';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import UserLogin from './components/UserLogin';
-import UserSelectOption from './components/UserSelectOption';
 import Homepage from './components/home-page';
 
 
@@ -15,7 +14,6 @@ export function App(): JSX.Element {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<UserLogin/>} />
-          <Route path="/selectoption" element={<UserSelectOption/>} />
         </Routes>
       </Router>
     );
