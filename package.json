@@ -12,7 +12,7 @@
     "prepare": "husky",
     "eslint": "eslint --fix .",
     "prettier": "prettier --write .",
-    "stylelint:actions": "stylelint --fix \"src/**/*.{css,scss}\" --custom-formatter=node_modules/stylelint-actions-formatters"
+    "stylelint:actions": "stylelint --fix \"src/**/*.{css,scss}\""
   },
   "dependencies": {
     "autoprefixer": "^10.4.19",
