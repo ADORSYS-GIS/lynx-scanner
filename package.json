@@ -11,7 +11,8 @@
     "typedoc": "typedoc",
     "prepare": "husky",
     "eslint": "eslint --fix .",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "stylelint:actions": "stylelint --fix \"src/**/*.{css,scss}\" --custom-formatter=node_modules/stylelint-actions-formatters"
   },
   "dependencies": {
     "autoprefixer": "^10.4.19",
@@ -43,7 +44,10 @@
     "prettier": "^3.2.5",
     "sass": "^1.75.0",
     "stylelint": "^16.4.0",
+    "stylelint-actions-formatters": "^16.3.1",
     "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-config-tailwindcss": "^0.0.7",
+    "stylelint-plugin-defensive-css": "^1.0.3",
     "typedoc": "^0.25.13",
     "typedoc-plugin-markdown": "^3.17.1",
     "typedoc-plugin-mdn-links": "^3.1.22",
