@@ -1,50 +1,79 @@
 import { useFormik } from 'formik';
-// import { InfoButton } from './scaninfo.tsx';
-
+// import { InfoButton } from './Scan-Button.tsx';
+import '../app.scss';
+import { Link } from 'react-router-dom';
 export const InfoForm = () => {
   const formik = useFormik({
     initialValues: {
-      Name: '',
-      password: '',
+      ScanTitle: '',
+      ScanDescription: '',
+      Others: '',
     },
-
     onSubmit: () => {
       alert('information submitted');
     },
   });
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <div>
-        <label htmlFor="text">Scan Name</label>
-        <input
-          id="text"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.Name}
-        />
+    <div className="main-container">
+      <div className="container">
+        <form onSubmit={formik.handleSubmit}>
+          <div className="inputs">
+            <div className="Title">Scan Form</div>
+            <label className="head" htmlFor="ScanTitle">
+              Scan Title
+            </label>
+            <div>
+              <input
+                id="scanTitle"
+                name="ScanTitle"
+                type="text"
+                onChange={formik.handleChange}
+                value={formik.values.ScanTitle}
+              />
+            </div>
+          </div>
+          <div>
+            <div className="inputs">
+              <label className="head" htmlFor="ScanDescription">
+                Scan Description
+              </label>
+              <div>
+                <textarea
+                  rows="3"
+                  cols="30"
+                  id="ScanDescription"
+                  name="ScanDescription"
+                  onChange={formik.handleChange}
+                  value={formik.values.ScanDescription}
+                />
+              </div>
+            </div>
+            <div className="inputs">
+              <label className="head" htmlFor="Others">
+                Others
+              </label>
+              <div>
+                <textarea
+                  rows="2"
+                  cols="30"
+                  id="Others"
+                  name="Others"
+                  onChange={formik.handleChange}
+                  value={formik.values.Others}
+                />
+              </div>
+            </div>
+            <div className="buttons ">
+              <button type="submit" className="Submit">
+                Submit
+              </button>
+              <Link to={`/login`}>
+                <button className="Cancel">Cancel</button>
+              </Link>
+            </div>
+          </div>
+        </form>
       </div>
-      <div>
-        <label htmlFor="password">Password</label>
-
-        <input
-          id="password"
-          type="password"
-          onChange={formik.handleChange}
-          value={formik.values.password}
-        />
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+    </div>
   );
 };
-
-// };
-
-// export default function InfoForm() {
-//   // alert('Please');
-//   return (
-//     <>
-//       <p>button clicked</p>
-//     </>
-//   );
-// }

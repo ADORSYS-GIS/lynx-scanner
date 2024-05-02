@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  padding: 1em;
+  align-items: center;
+  min-width: 60dvh;
+  background-color: gainsboro;
+  border: 2px solid white;
+  justify-content: space-evenly;
+  border-radius: 10px;
+
+}
+.main-container {
+  margin-top: 5em;
+  display: flex;
+  justify-content: center;
+  min-height: 368px;
+  min-width: 172px;
+}
+.Submit {
+  margin: 1em;
+  color: blue;
+}
+.Cancel {
+  margin: 1em;
+  color: red;
+}
+.buttons {
+  display: grid;
+ justify-content: space-evenly;
+}
+
+.inputs {
+  margin: 0.5em;
+}
+.Title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
+  font-size: 1.3em;
+}
+.head {
+  background: rgb(226, 236, 245);
+  font-size: 0.99em;
+  line-height: 1.1em;
+}
+
+.Add::after {
+  content: "Add Scan";
+  position: absolute;
+  visibility: hidden;
+
+}
+
+.Add:hover::after {
+  visibility: visible;
+  opacity: 1;
+}
+.Add {
+  cursor: pointer;
+}
