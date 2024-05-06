@@ -1,13 +1,23 @@
-// HomePage.tsx
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../reducers/rootReducer'; // Import RootState
+
+import { increment } from '../reducers/someReducers'; // Import your action creator
 
 const HomePage: React.FC = () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const isLoggedIn = useSelector((state: any) => state.isLoggedIn);
+  const count = useSelector((state: RootState) => state.someReducer.count); // Use RootState to annotate state
+
+  const dispatch = useDispatch();
+
+  const handleIncrement = () => {
+    dispatch(increment());
+  };
 
   return (
-    <div>{isLoggedIn ? <p>You are logged in</p> : <p>Please log in</p>}</div>
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={handleIncrement}>Increment</button>
+    </div>
   );
 };
 
