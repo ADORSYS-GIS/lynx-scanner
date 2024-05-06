@@ -16,7 +16,7 @@ export function App(): JSX.Element {
         <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<UserLogin />} />
         <Route path="/scan" element={<InfoButton />} />
-        <Route path="/scan/scaninfo" element={<InfoForm />} />
+        <Route path="/scan/scanform" element={<InfoForm />} />
       </Routes>
     </Router>
   );
