@@ -1,16 +1,12 @@
-import { InfoForm } from './InfoForm.tsx';
+// import { InfoForm } from './InfoForm.tsx';
+import { Link } from 'react-router-dom';
 
 export const InfoButton = () => {
   return (
-    <div>
-      <button
-        className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg"
-        onClick={() => {
-          <InfoForm />;
-        }}
-      >
-        +
-      </button>
+    <div className="parent-button">
+      <Link to={`/scan/scanform`}>
+        <button className="btn btn-outline btn-ghost Add">+</button>
+      </Link>
     </div>
   );
 };

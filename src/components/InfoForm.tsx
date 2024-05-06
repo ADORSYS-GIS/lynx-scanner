@@ -67,7 +67,7 @@ export const InfoForm = () => {
               <button type="submit" className="Submit">
                 Submit
               </button>
-              <Link to={`/login`}>
+              <Link to={`/scan`}>
                 <button className="Cancel">Cancel</button>
               </Link>
             </div>

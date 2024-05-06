@@ -43,14 +43,19 @@
   font-size: 0.99em;
   line-height: 1.1em;
 }
-
 .Add::after {
   content: "Add Scan";
   position: absolute;
   visibility: hidden;
 
-}
 
+}
+.parent-button {
+  display: grid;
+  justify-content: center;
+  align-items: end;
+margin-top: 30em;
+}
 .Add:hover::after {
   visibility: visible;
   opacity: 1;
