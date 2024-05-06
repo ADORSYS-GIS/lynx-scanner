@@ -18,7 +18,7 @@ export const InfoForm = () => {
       <div className="container">
         <form onSubmit={formik.handleSubmit}>
           <div className="inputs">
-            <div className="Title">Scan Form</div>
+            <div className="title">Scan Form</div>
             <label className="head" htmlFor="ScanTitle">
               Scan Title
             </label>
@@ -64,11 +64,11 @@ export const InfoForm = () => {
               </div>
             </div>
             <div className="buttons ">
-              <button type="submit" className="Submit">
+              <button type="submit" className="submit">
                 Submit
               </button>
               <Link to={`/scan`}>
-                <button className="Cancel">Cancel</button>
+                <button className="cancel">Cancel</button>
               </Link>
             </div>
           </div>
