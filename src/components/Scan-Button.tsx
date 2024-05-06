@@ -1,4 +1,3 @@
-// import { InfoForm } from './InfoForm.tsx';
 import { Link } from 'react-router-dom';
 
 export const InfoButton = () => {
