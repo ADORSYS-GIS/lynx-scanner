@@ -38,8 +38,8 @@ export const InfoForm = () => {
               </label>
               <div>
                 <textarea
-                  rows="3"
-                  cols="30"
+                  rows={parseInt('3')}
+                  cols={parseInt('30')}
                   id="ScanDescription"
                   name="ScanDescription"
                   onChange={formik.handleChange}
@@ -53,8 +53,8 @@ export const InfoForm = () => {
               </label>
               <div>
                 <textarea
-                  rows="2"
-                  cols="30"
+                  rows={parseInt('2')}
+                  cols={parseInt('30')}
                   id="Others"
                   name="Others"
                   onChange={formik.handleChange}
