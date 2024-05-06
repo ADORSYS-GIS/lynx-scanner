@@ -1,11 +1,12 @@
 import { JSX } from 'react';
-import './app.scss';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import UserLogin from './components/UserLogin';
-// import { InfoForm } from './components/InfoForm.tsx';
 import Homepage from './components/home-page.tsx';
 import { InfoButton } from './components/Scan-Button.tsx';
 import { InfoForm } from './components/InfoForm.tsx';
+import Homepage from './components/home-page';
+
+
 /**
  * The main application component.
  */
