@@ -1,5 +1,4 @@
 import { useFormik } from 'formik';
-import '../app.scss';
 import { Link } from 'react-router-dom';
 export const InfoForm = () => {
   const formik = useFormik({
