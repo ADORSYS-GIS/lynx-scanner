@@ -8,8 +8,8 @@ export const InfoForm = () => {
       ScanDescription: '',
       Others: '',
     },
-    onSubmit: (values) => {
-      alert('information submitted' + JSON.stringify(values));
+    onSubmit: () => {
+      alert('information submitted');
     },
   });
   return (
@@ -42,7 +42,6 @@ export const InfoForm = () => {
           Scan Description
         </label>
         <textarea
-          type="text"
           id="ScanDescription"
           name="ScanDescription"
           onChange={formik.handleChange}
@@ -60,7 +59,6 @@ export const InfoForm = () => {
           Others
         </label>
         <textarea
-          type="text"
           id="Others"
           name="Others"
           onChange={formik.handleChange}
