@@ -2,7 +2,7 @@ import { JSX } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import UserLogin from './components/UserLogin';
 import Homepage from './components/home-page';
-import { InfoButton } from './components/Scan-Button.tsx';
+import { InfoButton } from './components/InfoButton.tsx';
 import { InfoForm } from './components/InfoForm.tsx';
 
 /**
