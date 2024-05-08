@@ -15,6 +15,9 @@ jobs:
             - name: Clone project
               uses: actions/checkout@v3
 
+            - name: Install dependencies
+              run: yarn install
+
             - name: Generate docs in markdown
               run: yarn run typedoc
 
