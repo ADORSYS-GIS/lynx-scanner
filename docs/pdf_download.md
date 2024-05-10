@@ -14,7 +14,7 @@ Installs all the needed dependencies using the command `yarn install`
 Generate docs in markdown format using `yarn run typedoc`
 
 ### Convert md to pdf files
-CConvert md files to pdf using a custom script with `yarn run convert-md-to-pdf`
+Convert md files to pdf using a custom script with `yarn run convert-md-to-pdf`
 
 ### Upload PDF Artifact
 Uploads the generated PDF files as an artifact using [actions/upload-artifact@v3]
