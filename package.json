@@ -12,10 +12,12 @@
     "prepare": "husky",
     "eslint": "eslint --fix .",
     "prettier": "prettier --write .",
-    "stylelint:actions": "stylelint --fix \"src/**/*.{css,scss}\""
+    "stylelint:actions": "stylelint --fix \"src/**/*.{css,scss}\"",
+    "convert-md-to-pdf": "yarn run md-to-pdf ./docs/*.md ./docs/**/*.md"
   },
   "dependencies": {
     "autoprefixer": "^10.4.19",
+    "md-to-pdf": "^5.2.4",
     "postcss": "^8.4.38",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
