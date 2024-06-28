@@ -18,8 +18,62 @@ servers:
           - dev
           - api
 
-tags: []
+tags:
+  - name: file
 
-paths: {}
+paths:
+  '/files/upload':
+    post:
+      summary: Upload a file
+      tags: [ file ]
+      operationId: uploadFile
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileUploadResponse'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FileUpload'
+  '/files/download/{file_id}':
+    get:
+      summary: Get a file
+      tags: [ file ]
+      operationId: getFile
+      parameters:
+        - name: file_id
+          in: path
+          required: true
+          description: File ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: 'File not found'
+        '500':
+          description: 'Internal server error'
 
-components: {}
+components:
+  schemas:
+    FileUpload:
+      type: object
+      properties:
+        file:
+          type: string
+          format: binary
+    FileUploadResponse:
+      type: object
+      properties:
+        file_id:
+          type: string
