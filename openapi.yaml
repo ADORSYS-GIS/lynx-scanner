@@ -22,7 +22,7 @@ tags:
   - name: file
 
 paths:
-  '/files/upload':
+  '/api/files/upload':
     post:
       summary: Upload a file
       tags: [ file ]
@@ -39,7 +39,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/FileUpload'
-  '/files/download/{file_id}':
+  '/api/files/download/{file_id}':
     get:
       summary: Get a file
       tags: [ file ]
@@ -63,9 +63,146 @@ paths:
           description: 'File not found'
         '500':
           description: 'Internal server error'
-
+  '/api/scans':
+    get:
+      summary: Get all scans
+      tags: [ scan ]
+      operationId: getScans
+      description: Get all scans
+      parameters:
+        - name: page
+          in: query
+          required: false
+          description: Page number
+          schema:
+            type: number
+        - name: size
+          in: query
+          required: false
+          description: Size of page
+          schema:
+            type: number
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Scan'
+        '500':
+          description: 'Internal server error'
+    post:
+      summary: Create a scan
+      tags: [ scan ]
+      operationId: createScan
+      description: Create a scan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Scan'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scan'
+        '400':
+          description: 'Bad request'
+        '500':
+          description: 'Internal server error'
+  '/api/scans/{scan_id}':
+    get:
+      summary: Get a scan
+      tags: [ scan ]
+      operationId: getScan
+      description: Get a scan
+      parameters:
+        - name: scan_id
+          in: path
+          required: true
+          description: Scan ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scan'
+        '404':
+          description: 'Scan not found'
+        '500':
+          description: 'Internal server error'
+    put:
+      summary: Update a scan
+      tags: [ scan ]
+      operationId: updateScan
+      description: Update a scan
+      parameters:
+        - name: scan_id
+          in: path
+          required: true
+          description: Scan ID
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Scan'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scan'
+        '400':
+          description: 'Bad request'
+        '404':
+          description: 'Scan not found'
+        '500':
+          description: 'Internal server error'
+    delete:
+      summary: Delete a scan
+      tags: [ scan ]
+      operationId: deleteScan
+      description: Delete a scan
+      parameters:
+        - name: scan_id
+          in: path
+          required: true
+          description: Scan ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: 'Scan not found'
+        '500':
+          description: 'Internal server error'
 components:
   schemas:
+    Scan:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+        updated_at:
+          type: string
+        meta_data:
+          additionalProperties:
+            type: string
+        title:
+          type: string
     FileUpload:
       type: object
       properties:
