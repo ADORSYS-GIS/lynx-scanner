@@ -12,12 +12,14 @@
     "prepare": "husky",
     "eslint": "eslint --fix .",
     "prettier": "prettier --write .",
-    "stylelint:actions": "stylelint --fix \"src/**/*.{css,scss}\""
+    "stylelint:actions": "stylelint --fix \"src/**/*.{css,scss}\"",
+    "convert-md-to-pdf": "yarn run md-to-pdf ./docs/*.md ./docs/**/*.md"
   },
   "dependencies": {
     "@sentry/react": "^7.114.0",
     "@sentry/tracing": "^7.114.0",
     "autoprefixer": "^10.4.19",
+    "md-to-pdf": "^5.2.4",
     "postcss": "^8.4.38",
     "react": "^18.3.1",
     "react-dom": "^18.2.0",
@@ -34,6 +36,7 @@
     "@typescript-eslint/eslint-plugin": "^7.7.1",
     "@typescript-eslint/parser": "^7.7.1",
     "@vitejs/plugin-react": "^4.2.1",
+    "daisyui": "^4.10.5",
     "eslint": "8",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-react-app": "^7.0.1",
@@ -69,5 +72,6 @@
     "!(*.{css,scss,js,jsx,ts,tsx})": [
       "prettier --write"
     ]
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
