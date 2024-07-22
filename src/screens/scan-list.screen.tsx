@@ -1,17 +1,10 @@
 import React from 'react';
 
-interface Scan {
-  id: number;
-  title: string;
-  rawData: string;
-  imageUrl: string;
-}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Scan = any; // 'TODO: Define the scan type';
 
-interface ScanListProps {
-  scans: Scan[];
-}
-
-const ScanList: React.FC<ScanListProps> = ({ scans }) => {
+export const Component: React.FC = () => {
+  const scans: Scan[] = [];
   return (
     <div className="flex flex-row space-x-4">
       {scans.map((scan) => (
@@ -28,5 +21,3 @@ const ScanList: React.FC<ScanListProps> = ({ scans }) => {
     </div>
   );
 };
-
-export default ScanList;

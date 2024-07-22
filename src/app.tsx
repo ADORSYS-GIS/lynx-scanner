@@ -1,18 +1,16 @@
 import { JSX } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import UserLogin from './components/UserLogin';
-import Homepage from './components/home-page';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router.tsx';
+import { FloatingConfig } from './components/floating-config.tsx';
 
 /**
  * The main application component.
  */
 export function App(): JSX.Element {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/login" element={<UserLogin />} />
-      </Routes>
-    </Router>
+    <>
+      <FloatingConfig />
+      <RouterProvider router={router} />
+    </>
   );
 }
