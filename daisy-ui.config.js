@@ -16,13 +16,19 @@ export default {
     themes: [
       {
         'lynx-light': {
-          ...themes.cmyk,
+          ...themes.pastel,
           ...coreColors,
         },
       },
       {
         'lynx-dark': {
-          ...themes.lemonade,
+          ...themes.forest,
+          ...coreColors,
+        },
+      },
+      {
+        'lynx-valantine': {
+          ...themes.valentine,
           ...coreColors,
         },
       },
