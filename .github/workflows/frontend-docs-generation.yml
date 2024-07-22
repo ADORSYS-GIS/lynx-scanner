@@ -1,31 +1,37 @@
 name: Generate Documentation for the frontend
 
 on:
-    push:
-        branches:
-            - '**'
-    pull_request:
-        branches:
-            - '**'
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
 
 jobs:
-    generate-docs:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Clone project
-              uses: actions/checkout@v3
+  generate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone project
+        uses: actions/checkout@v4
 
-            - name: Install dependencies
-              run: yarn install
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.x
+          cache: 'npm'
 
-            - name: Generate docs in markdown
-              run: yarn run typedoc
+      - name: Install dependencies
+        run: yarn install
 
-            - name: Convert md to pdf files
-              run: yarn run convert-md-to-pdf
+      - name: Generate docs in markdown
+        run: yarn run typedoc
 
-            - name: Upload PDF artifact
-              uses: actions/upload-artifact@v3
-              with:
-                  name: documentations
-                  path: ./docs/**/*.pdf
+      - name: Convert md to pdf files
+        run: yarn run convert-md-to-pdf
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: documentations
+          path: ./docs/**/*.pdf
