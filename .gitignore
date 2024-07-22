@@ -127,3 +127,6 @@ docs/gen
 *.njsproj
 *.sln
 *.sw?
+
+#API codegen files
+./src/store/LynxScannerApi.ts
