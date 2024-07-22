@@ -1,8 +1,13 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
 
 export const router = createBrowserRouter([
   {
     path: '/scans',
+    element: (
+      <div className="p-4">
+        <Outlet />
+      </div>
+    ),
     children: [
       {
         path: 'add',
@@ -10,7 +15,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '',
-        lazy: () => import('./screens/scan.screen'),
+        lazy: () => import('./screens/scan-list.screen'),
       },
     ],
   },
