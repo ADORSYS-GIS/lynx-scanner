@@ -6,17 +6,17 @@ export const router = createBrowserRouter([
     children: [
       {
         path: 'add',
-        lazy: () => import('./components/scan.screen'),
+        lazy: () => import('./screens/scan.screen'),
       },
       {
         path: '',
-        lazy: () => import('./components/scan.screen'),
+        lazy: () => import('./screens/scan.screen'),
       },
     ],
   },
   {
     path: '/config',
-    lazy: () => import('./components/app-config.screen'),
+    lazy: () => import('./screens/app-config.screen'),
   },
   {
     path: '*',
