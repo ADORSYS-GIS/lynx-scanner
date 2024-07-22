@@ -16,11 +16,13 @@
     "convert-md-to-pdf": "yarn run md-to-pdf ./docs/*.md ./docs/**/*.md"
   },
   "dependencies": {
+    "@sentry/react": "^7.114.0",
+    "@sentry/tracing": "^7.114.0",
     "autoprefixer": "^10.4.19",
     "i18next": "^23.11.4",
     "md-to-pdf": "^5.2.4",
     "postcss": "^8.4.38",
-    "react": "^18.2.0",
+    "react": "^18.3.1",
     "react-daisyui": "^5.0.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^14.1.1",
@@ -59,7 +61,7 @@
     "typedoc": "^0.25.13",
     "typedoc-plugin-markdown": "^3.17.1",
     "typedoc-plugin-mdn-links": "^3.1.22",
-    "typescript": "^5.2.2",
+    "typescript": "^5.4.5",
     "vite": "^5.2.0",
     "vite-plugin-eslint": "^1.8.1"
   },
