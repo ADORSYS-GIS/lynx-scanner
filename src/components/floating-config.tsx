@@ -1,7 +1,8 @@
 import { Button, Divider, Dropdown } from 'react-daisyui';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Menu } from 'react-feather';
+import { BarChart2, Globe, Menu, Settings } from 'react-feather';
+import { Link } from 'react-router-dom';
 
 interface ThemeButtonProps {
   themeName: 'valantine' | 'light' | 'dark';
@@ -14,6 +15,7 @@ function ThemeButton({ themeName }: ThemeButtonProps) {
       data-set-theme={'lynx-' + themeName}
       data-act-class={'lynx-' + themeName}
     >
+      <BarChart2 />
       {t('config.' + themeName)}
     </button>
   );
@@ -38,7 +40,7 @@ export function FloatingConfig() {
             <Menu />
           </Button>
         </Dropdown.Toggle>
-        <Dropdown.Menu className="w-52 bg-base-100">
+        <Dropdown.Menu className="w-52 bg-base-200">
           <Dropdown.Item anchor={false}>
             <ThemeButton themeName="light" />
           </Dropdown.Item>
@@ -50,14 +52,23 @@ export function FloatingConfig() {
           </Dropdown.Item>
           <Divider />
           <Dropdown.Item anchor={false}>
-            <button onClick={() => changeLanguageHandler('en')}>English</button>
+            <button onClick={() => changeLanguageHandler('en')}>
+              <Globe />
+              <span>English</span>
+            </button>
           </Dropdown.Item>
           <Dropdown.Item anchor={false}>
-            <button onClick={() => changeLanguageHandler('de')}>Deutsch</button>
+            <button onClick={() => changeLanguageHandler('de')}>
+              <Globe />
+              <span>Deutsch</span>
+            </button>
           </Dropdown.Item>
           <Divider />
           <Dropdown.Item anchor={false}>
-            <a href="/config">Config</a>
+            <Link to="/config">
+              <Settings />
+              <span>Config</span>
+            </Link>
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>

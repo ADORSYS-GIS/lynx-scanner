@@ -1,14 +1,15 @@
+import { setupLogging } from './logging';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from './app.tsx';
 import * as Sentry from '@sentry/react';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
-
 import './index.scss';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import { ThemeWrapper } from './components/theme-wrapper.tsx';
+import { isElectron } from './shared/constants.ts';
 
 Sentry.init({
   dsn: 'https://9fd06d22381ef360013d83b6b0c8375e@o4507214219313152.ingest.de.sentry.io/4507214225801296',
@@ -24,6 +25,10 @@ Sentry.init({
   replaysSessionSampleRate: 0.1,
   replaysOnErrorSampleRate: 1.0,
 });
+
+if (isElectron) {
+  setupLogging();
+}
 
 const rootElement = document.getElementById('root') as HTMLElement;
 const root = ReactDOM.createRoot(rootElement);

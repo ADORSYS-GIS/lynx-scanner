@@ -4,7 +4,7 @@ const baseDir = process.env.GEN_FOLDER!;
 
 const config: ConfigFile = {
   schemaFile: './openapi.yaml',
-  apiFile: './src/store/emptyApi.ts',
+  apiFile: './src/store/empty.api.ts',
   apiImport: 'emptySplitApi',
   hooks: true,
   outputFiles: {

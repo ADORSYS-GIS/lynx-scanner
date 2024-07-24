@@ -4,15 +4,10 @@ import { Button, Loading } from 'react-daisyui';
 import { ScanListDump } from '../components/scan-list.dump.tsx';
 import { Plus } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
-import { ErrorDump } from '../components/error.dump.tsx';
 
 export const Component: React.FC = () => {
   const [page, setPage] = useState(0);
-  const {
-    data: scans,
-    error,
-    isLoading,
-  } = useGetScansQuery({ page: page, size: 10 });
+  const { data: scans, isLoading } = useGetScansQuery({ page: page, size: 10 });
 
   const navigate = useNavigate();
 
@@ -30,8 +25,6 @@ export const Component: React.FC = () => {
       </div>
 
       {isLoading && <Loading />}
-
-      {error && <ErrorDump error={error} />}
 
       {scans && (
         <ScanListDump

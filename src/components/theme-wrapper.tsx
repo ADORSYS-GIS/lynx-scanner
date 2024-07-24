@@ -3,7 +3,7 @@ import { themeChange } from 'theme-change';
 
 export function ThemeWrapper({ children }: PropsWithChildren) {
   useEffect(() => {
-    themeChange(true);
+    themeChange(false);
   }, []);
 
   return children;
