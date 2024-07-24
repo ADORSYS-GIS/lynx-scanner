@@ -1,23 +1,46 @@
-import React from 'react';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Scan = any; // 'TODO: Define the scan type';
+import React, { useState } from 'react';
+import { useGetScansQuery } from '@api/scans.api.gen.ts';
+import { Button, Loading } from 'react-daisyui';
+import { ScanListDump } from '../components/scan-list.dump.tsx';
+import { Plus } from 'react-feather';
+import { useNavigate } from 'react-router-dom';
+import { ErrorDump } from '../components/error.dump.tsx';
 
 export const Component: React.FC = () => {
-  const scans: Scan[] = [];
+  const [page, setPage] = useState(0);
+  const {
+    data: scans,
+    error,
+    isLoading,
+  } = useGetScansQuery({ page: page, size: 10 });
+
+  const navigate = useNavigate();
+
   return (
-    <div className="flex flex-row space-x-4">
-      {scans.map((scan) => (
-        <div key={scan.id} className="p-4 border border-gray-300 rounded-md">
-          <img
-            src={scan.imageUrl}
-            alt={scan.title}
-            className="mb-2 rounded-md w-40 h-auto"
-          />
-          <h3 className="font-bold">{scan.title}</h3>
-          <p>{scan.rawData}</p>
-        </div>
-      ))}
+    <div className="flex flex-col gap-2 md:gap-4">
+      <div className="flex justify-between items-center">
+        <h1 className="text-2xl">Scans</h1>
+        <Button
+          color="ghost"
+          onClick={() => navigate('/scans/add')}
+          shape="circle"
+        >
+          <Plus />
+        </Button>
+      </div>
+
+      {isLoading && <Loading />}
+
+      {error && <ErrorDump error={error} />}
+
+      {scans && (
+        <ScanListDump
+          page={page}
+          scans={scans}
+          onNext={() => setPage((prevState) => ++prevState)}
+          onPrev={() => setPage((prevState) => --prevState)}
+        />
+      )}
     </div>
   );
 };

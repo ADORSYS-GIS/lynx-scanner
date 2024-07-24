@@ -8,9 +8,9 @@ import { FloatingConfig } from './components/floating-config.tsx';
  */
 export function App(): JSX.Element {
   return (
-    <>
+    <div className="mx-auto max-w-screen-lg">
       <FloatingConfig />
       <RouterProvider router={router} />
-    </>
+    </div>
   );
 }

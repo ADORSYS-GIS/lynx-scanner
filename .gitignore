@@ -128,5 +128,6 @@ docs/gen
 *.sln
 *.sw?
 
-#API codegen files
-./src/store/LynxScannerApi.ts
+# API codegen files
+*.gen.*
+gen

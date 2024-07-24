@@ -20,12 +20,13 @@ servers:
 
 tags:
   - name: file
+  - name: scan
 
 paths:
   '/api/files/upload':
     post:
       summary: Upload a file
-      tags: [ file ]
+      tags: [file]
       operationId: uploadFile
       responses:
         '200':
@@ -42,7 +43,7 @@ paths:
   '/api/files/download/{file_id}':
     get:
       summary: Get a file
-      tags: [ file ]
+      tags: [file]
       operationId: getFile
       parameters:
         - name: file_id
@@ -66,7 +67,7 @@ paths:
   '/api/scans':
     get:
       summary: Get all scans
-      tags: [ scan ]
+      tags: [scan]
       operationId: getScans
       description: Get all scans
       parameters:
@@ -95,7 +96,7 @@ paths:
           description: 'Internal server error'
     post:
       summary: Create a scan
-      tags: [ scan ]
+      tags: [scan]
       operationId: createScan
       description: Create a scan
       requestBody:
@@ -117,7 +118,7 @@ paths:
   '/api/scans/{scan_id}':
     get:
       summary: Get a scan
-      tags: [ scan ]
+      tags: [scan]
       operationId: getScan
       description: Get a scan
       parameters:
@@ -140,7 +141,7 @@ paths:
           description: 'Internal server error'
     put:
       summary: Update a scan
-      tags: [ scan ]
+      tags: [scan]
       operationId: updateScan
       description: Update a scan
       parameters:
@@ -170,7 +171,7 @@ paths:
           description: 'Internal server error'
     delete:
       summary: Delete a scan
-      tags: [ scan ]
+      tags: [scan]
       operationId: deleteScan
       description: Delete a scan
       parameters:
