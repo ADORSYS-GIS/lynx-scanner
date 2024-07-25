@@ -1,8 +1,13 @@
 import { fetchConfigUrl } from '../thunks';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+interface NotifMessage {
+  id: string;
+  message: string;
+}
+
 export interface NotificationState {
-  messages: string[];
+  messages: NotifMessage[];
 }
 
 const initialState = {
@@ -17,17 +22,21 @@ const notificationSlice = createSlice({
       state.messages = [];
     },
     remove(state, action: PayloadAction<string>) {
-      state.messages = state.messages.filter((p) => p !== action.payload);
+      state.messages = state.messages.filter((p) => p.id !== action.payload);
     },
     add(state, action: PayloadAction<string>) {
-      state.messages.push(action.payload);
+      state.messages.push({
+        id: new Date().getTime().toString(),
+        message: action.payload,
+      });
     },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchConfigUrl.rejected, (state, action) => {
-      state.messages.push(
-        action.error?.message ?? JSON.stringify(action.error)
-      );
+      state.messages.push({
+        id: new Date().getTime().toString(),
+        message: action.error?.message ?? JSON.stringify(action.error),
+      });
     });
   },
 });
@@ -39,9 +48,3 @@ export const {
 } = notificationSlice.actions;
 
 export const reducerNotification = notificationSlice.reducer;
-
-export const selectNotifications = ({
-  notification,
-}: {
-  notification: NotificationState;
-}) => notification.messages.filter((p) => !!p).map((p) => p!);

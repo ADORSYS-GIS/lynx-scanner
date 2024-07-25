@@ -1,6 +1,6 @@
 import {
+  selectNotification,
   removeNotification,
-  selectNotifications,
   useAppDispatch,
   useAppSelector,
 } from '../store';
@@ -9,31 +9,29 @@ import { useCallback } from 'react';
 import { X } from 'react-feather';
 
 export function Notification() {
-  const notifications = useAppSelector(selectNotifications);
+  const notifications = useAppSelector(selectNotification);
   const dispatch = useAppDispatch();
   const remove = useCallback(
-    (msg: string) => () => {
-      dispatch(removeNotification(msg));
+    (id: string) => () => {
+      dispatch(removeNotification(id));
     },
     [dispatch]
   );
   return (
-    <div className="">
-      {notifications.map((message, index) => (
-        <Toast horizontal="start" vertical="bottom" key={index}>
-          <Alert status="error">
-            <Button
-              onClick={remove(message)}
-              color="ghost"
-              size="sm"
-              shape="circle"
-            >
-              <X />
-            </Button>
-            <span>{message}</span>
-          </Alert>
-        </Toast>
+    <Toast horizontal="start" vertical="bottom">
+      {notifications.map((notification, index) => (
+        <Alert key={index} status="error">
+          <Button
+            onClick={remove(notification.id)}
+            size="sm"
+            color="ghost"
+            shape="circle"
+          >
+            <X />
+          </Button>
+          <span>{notification.message}</span>
+        </Alert>
       ))}
-    </div>
+    </Toast>
   );
 }

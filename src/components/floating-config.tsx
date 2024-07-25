@@ -1,8 +1,9 @@
 import { Button, Divider, Dropdown } from 'react-daisyui';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { BarChart2, Globe, Menu, Settings } from 'react-feather';
+import { BarChart2, Globe, List, Menu, Settings } from 'react-feather';
 import { Link } from 'react-router-dom';
+import { themeChange } from 'theme-change';
 
 interface ThemeButtonProps {
   themeName: 'valantine' | 'light' | 'dark';
@@ -22,6 +23,10 @@ function ThemeButton({ themeName }: ThemeButtonProps) {
 }
 
 export function FloatingConfig() {
+  useEffect(() => {
+    themeChange(false);
+  }, []);
+
   const { i18n } = useTranslation();
 
   const changeLanguageHandler = useCallback(
@@ -68,6 +73,12 @@ export function FloatingConfig() {
             <Link to="/config">
               <Settings />
               <span>Config</span>
+            </Link>
+          </Dropdown.Item>
+          <Dropdown.Item anchor={false}>
+            <Link to="/scans">
+              <List />
+              <span>Scans</span>
             </Link>
           </Dropdown.Item>
         </Dropdown.Menu>

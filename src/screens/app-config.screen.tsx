@@ -1,11 +1,14 @@
-import React, { lazy, useCallback, useEffect } from 'react';
+import React, { lazy, useEffect } from 'react';
 import { t } from 'i18next';
-import { Button, Card } from 'react-daisyui';
+import { Card } from 'react-daisyui';
 import { useNavigate } from 'react-router-dom';
 import { isElectron } from '../shared/constants.ts';
-import { ArrowRight } from 'react-feather';
 
 const ConfigQrCode = lazy(() => import('../components/config.qr-code'));
+const ConfigScanButton = lazy(() => import('../components/config-scan.button'));
+const ToListScanButton = lazy(
+  () => import('../components/to-list-scan.button.tsx')
+);
 
 const configKey = 'lynx:config';
 
@@ -18,10 +21,6 @@ export const Component: React.FC = () => {
       return JSON.parse(item);
     }
   };
-  const scanConfigAndPersist = useCallback(() => {
-    console.log('scanConfigAndPersist');
-  }, []);
-  const toScans = useCallback(() => navigate('/scans'), [navigate]);
 
   useEffect(() => {
     const config = checkConfig();
@@ -30,22 +29,15 @@ export const Component: React.FC = () => {
     }
   }, [navigate]);
   return (
-    <div className="flex justify-center items-center h-[100vh] p-4">
+    <div className="flex justify-center h-[100vh] items-center p-4">
       <Card className="max-w-sm border-0 sm:border-2 sm:bg-base-200">
         {isElectron && <ConfigQrCode />}
         <Card.Body>
           <Card.Title>{t('config.page')}</Card.Title>
           <p>{t('config.description')}</p>
           <Card.Actions>
-            {isElectron && (
-              <Button onClick={scanConfigAndPersist} color="primary">
-                Scan
-              </Button>
-            )}
-            <Button fullWidth color="primary" onClick={toScans}>
-              <span>To Scans</span>
-              <ArrowRight />
-            </Button>
+            {!isElectron && <ConfigScanButton />}
+            {isElectron && <ToListScanButton />}
           </Card.Actions>
         </Card.Body>
       </Card>

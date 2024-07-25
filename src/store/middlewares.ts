@@ -13,7 +13,13 @@ export const rtkQueryErrorLogger: Middleware =
         'data' in action.error
           ? (action.error.data as { message: string }).message
           : action.error.message;
-      if (message) dispatch(addNotification(message));
+
+      const msg =
+        'error' in (action.payload as Record<string, string>)
+          ? (action.payload as Record<string, string>).error
+          : message;
+      console.error(message, msg);
+      if (msg) dispatch(addNotification(msg));
     }
 
     return next(action);

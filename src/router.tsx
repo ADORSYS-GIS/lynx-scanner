@@ -6,7 +6,9 @@ export const router = createBrowserRouter([
     element: (
       <div>
         <FloatingConfig />
-        <Outlet />
+        <div className="flex flex-col gap-2 md:gap-4">
+          <Outlet />
+        </div>
       </div>
     ),
     children: [
@@ -14,7 +16,9 @@ export const router = createBrowserRouter([
         path: '/scans',
         element: (
           <div className="p-4">
-            <Outlet />
+            <div className="flex flex-col gap-2 md:gap-4">
+              <Outlet />
+            </div>
           </div>
         ),
         children: [
@@ -30,7 +34,16 @@ export const router = createBrowserRouter([
       },
       {
         path: '/config',
-        lazy: () => import('./screens/app-config.screen'),
+        children: [
+          {
+            path: '',
+            lazy: () => import('./screens/app-config.screen'),
+          },
+          {
+            path: 'scan',
+            lazy: () => import('./screens/scan-config.screen'),
+          },
+        ],
       },
     ],
   },

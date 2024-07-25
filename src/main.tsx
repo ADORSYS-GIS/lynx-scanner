@@ -8,7 +8,6 @@ import i18n from './i18n';
 import './index.scss';
 import { Provider } from 'react-redux';
 import { store } from './store';
-import { ThemeWrapper } from './components/theme-wrapper.tsx';
 import { isElectron } from './shared/constants.ts';
 
 Sentry.init({
@@ -36,9 +35,7 @@ root.render(
   <React.StrictMode>
     <I18nextProvider i18n={i18n}>
       <Provider store={store}>
-        <ThemeWrapper>
-          <App />
-        </ThemeWrapper>
+        <App />
       </Provider>
     </I18nextProvider>
   </React.StrictMode>

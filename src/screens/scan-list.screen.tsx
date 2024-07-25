@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useGetScansQuery } from '@api/scans.api.gen.ts';
-import { Button, Loading } from 'react-daisyui';
+import { Loading } from 'react-daisyui';
 import { ScanListDump } from '../components/scan-list.dump.tsx';
 import { Plus } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
+import { Header } from '../components/header.tsx';
 
 export const Component: React.FC = () => {
   const [page, setPage] = useState(0);
@@ -12,17 +13,13 @@ export const Component: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col gap-2 md:gap-4">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl">Scans</h1>
-        <Button
-          color="ghost"
-          onClick={() => navigate('/scans/add')}
-          shape="circle"
-        >
-          <Plus />
-        </Button>
-      </div>
+    <>
+      <Header
+        back={false}
+        Icon={Plus}
+        title="Scans"
+        onIconClick={() => navigate('/scans/add')}
+      />
 
       {isLoading && <Loading />}
 
@@ -34,6 +31,6 @@ export const Component: React.FC = () => {
           onPrev={() => setPage((prevState) => --prevState)}
         />
       )}
-    </div>
+    </>
   );
 };
