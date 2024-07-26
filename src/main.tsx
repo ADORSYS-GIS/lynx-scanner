@@ -1,4 +1,3 @@
-import { setupLogging } from './logging';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from './app.tsx';
@@ -7,8 +6,8 @@ import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
 import './index.scss';
 import { Provider } from 'react-redux';
-import { store } from './store';
-import { isElectron } from './shared/constants.ts';
+import { store } from '@store';
+import { isElectron, setupLogging } from '@shared';
 
 Sentry.init({
   dsn: 'https://9fd06d22381ef360013d83b6b0c8375e@o4507214219313152.ingest.de.sentry.io/4507214225801296',

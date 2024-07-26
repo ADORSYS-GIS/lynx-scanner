@@ -12,7 +12,7 @@ interface HeaderProps {
 
 interface BackHeaderProps {
   title: string;
-  back: true;
+  back: string;
 }
 
 interface RawTrail {
@@ -37,7 +37,7 @@ export function Header({
           <ArrowLeft />
         </Button>
       )}
-      <h1 className="text-2xl">{title}</h1>
+      <h1 className="text-2xl ml-2">{title}</h1>
       <div className="mx-auto" />
       {!back && Icon && (
         <Button color="ghost" onClick={onIconClick} shape="circle">

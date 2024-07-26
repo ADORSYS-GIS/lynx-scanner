@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useGetScansQuery } from '@api/scans.api.gen.ts';
+import { useGetScansQuery } from '@api';
 import { Loading } from 'react-daisyui';
-import { ScanListDump } from '../components/scan-list.dump.tsx';
+import { ScanListSimple } from '@components/scan-list.simple.tsx';
 import { Plus } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../components/header.tsx';
@@ -24,7 +24,7 @@ export const Component: React.FC = () => {
       {isLoading && <Loading />}
 
       {scans && (
-        <ScanListDump
+        <ScanListSimple
           page={page}
           scans={scans}
           onNext={() => setPage((prevState) => ++prevState)}

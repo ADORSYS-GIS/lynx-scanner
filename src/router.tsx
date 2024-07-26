@@ -1,5 +1,5 @@
 import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
-import { FloatingConfig } from './components/floating-config.tsx';
+import { FloatingConfig } from '@components/floating-config.tsx';
 
 export const router = createBrowserRouter([
   {
@@ -24,11 +24,11 @@ export const router = createBrowserRouter([
         children: [
           {
             path: 'add',
-            lazy: () => import('./screens/scan.screen'),
+            lazy: () => import('@screens/scan.screen'),
           },
           {
             path: '',
-            lazy: () => import('./screens/scan-list.screen'),
+            lazy: () => import('@screens/scan-list.screen'),
           },
         ],
       },
@@ -37,11 +37,11 @@ export const router = createBrowserRouter([
         children: [
           {
             path: '',
-            lazy: () => import('./screens/app-config.screen'),
+            lazy: () => import('@screens/app-config.screen'),
           },
           {
             path: 'scan',
-            lazy: () => import('./screens/scan-config.screen'),
+            lazy: () => import('@screens/scan-config.screen'),
           },
         ],
       },

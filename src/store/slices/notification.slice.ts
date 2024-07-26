@@ -1,5 +1,5 @@
-import { fetchConfigUrl } from '../thunks';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { fetchConfigUrl } from '@store/thunks';
 
 interface NotifMessage {
   id: string;

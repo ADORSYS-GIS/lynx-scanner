@@ -1,4 +1,4 @@
-export * from './empty.api';
+export * from './api/empty.api.ts';
 export * from './hooks';
 export * from './store';
 export * from './slices';

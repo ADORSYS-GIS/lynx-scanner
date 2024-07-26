@@ -7,9 +7,13 @@ import {
 } from '@yudiel/react-qr-scanner';
 import { Button, Dropdown } from 'react-daisyui';
 import { Camera } from 'react-feather';
-import { setUrlConfig, useAppDispatch } from '../store';
+import { setUrlConfig, useAppDispatch } from '@store';
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * ScanConfig screen component
+ * @constructor React.FC
+ */
 export const Component: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -19,7 +23,7 @@ export const Component: React.FC = () => {
   );
   const onScan = (detectedCodes: IDetectedBarcode[]) => {
     for (const { rawValue, format } of detectedCodes) {
-      if (format in ['qr_code', 'rm_qr_code', 'micro_qr_code']) {
+      if (['qr_code', 'rm_qr_code', 'micro_qr_code'].includes(format)) {
         const config = JSON.parse(rawValue) as Record<string, string>;
         dispatch(setUrlConfig(config.url));
         navigate('..');
@@ -31,11 +35,11 @@ export const Component: React.FC = () => {
       <div className="p-4">
         <Header
           title="Configs"
-          back={true}
+          back=".."
           trailing={
             <Dropdown horizontal="left">
               <Dropdown.Toggle button={false}>
-                <Button shape="circle">
+                <Button color="ghost" shape="circle">
                   <Camera />
                 </Button>
               </Dropdown.Toggle>

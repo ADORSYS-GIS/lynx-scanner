@@ -14,7 +14,7 @@
     "prettier": "prettier --write .",
     "stylelint:actions": "stylelint --fix \"src/**/*.{css,scss}\"",
     "convert-md-to-pdf": "yarn run md-to-pdf ./docs/*.md ./docs/**/*.md",
-    "rtk:gen": "export GEN_FOLDER=./src/store/gen && rimraf $GEN_FOLDER && mkdir $GEN_FOLDER && rtk-query-codegen-openapi openapi-config.ts && prettier -w $GEN_FOLDER",
+    "rtk:gen": "rimraf ./src/store/api/gen && mkdir ./src/store/api/gen && rtk-query-codegen-openapi openapi-config.ts && prettier -w ./src/store/api/gen",
     "postinstall": "yarn run rtk:gen"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
     "@sentry/tracing": "^7.114.0",
     "@yudiel/react-qr-scanner": "^2.0.4",
     "autoprefixer": "^10.4.19",
+    "axios": "^1.7.2",
     "i18next": "^23.11.4",
     "md-to-pdf": "^5.2.4",
     "postcss": "^8.4.38",
@@ -36,6 +37,7 @@
     "react-router-dom": "^6.23.0",
     "redux": "^5.0.1",
     "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
     "redux-toolkit": "^1.1.2",
     "tailwindcss": "^3.4.3",
     "theme-change": "^2.5.0"

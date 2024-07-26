@@ -1,4 +1,4 @@
-import type { Scan } from '@api/scans.api.gen.ts';
+import type { Scan } from '@api';
 import { Button, Pagination } from 'react-daisyui';
 import { ArrowLeft, ArrowRight } from 'react-feather';
 
@@ -9,7 +9,7 @@ export interface ScanListDumpProps {
   onPrev: () => void;
 }
 
-export function ScanListDump({
+export function ScanListSimple({
   scans,
   onPrev,
   onNext,

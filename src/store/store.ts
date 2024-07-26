@@ -1,9 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { reducerConfig, reducerNotification } from './slices';
-import { emptySplitApi } from './empty.api';
 import logger from 'redux-logger';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { rtkQueryErrorLogger } from './middlewares.ts';
+import { reducerConfig, reducerNotification } from '@store/slices';
+import { emptySplitApi } from '@store/api/empty.api.ts';
+import { rtkQueryErrorLogger } from '@store/middlewares.ts';
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from 'redux-persist';
 
 export const store = configureStore({
   reducer: {
@@ -15,11 +23,11 @@ export const store = configureStore({
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(
-      emptySplitApi.middleware,
-      logger,
-      rtkQueryErrorLogger
-    ),
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(emptySplitApi.middleware, logger, rtkQueryErrorLogger),
 });
 
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors

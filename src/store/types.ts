@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { store } from './store';
 import { ElectronAPI } from '@electron-toolkit/preload';
+import { store } from '@store/store.ts';
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
