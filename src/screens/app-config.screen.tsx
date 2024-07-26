@@ -1,10 +1,7 @@
-import React, { lazy, useEffect } from 'react';
+import React, { lazy } from 'react';
 import { t } from 'i18next';
 import { Card } from 'react-daisyui';
-import { useNavigate } from 'react-router-dom';
-import { isElectron } from '../shared/constants.ts';
-import { useSelector } from 'react-redux';
-import { selectConfigUrl } from '@store';
+import { isElectron } from '@shared';
 
 const ConfigQrCode = lazy(() => import('../components/config.qr-code'));
 const ConfigScanButton = lazy(() => import('../components/config-scan.button'));
@@ -13,15 +10,6 @@ const ToListScanButton = lazy(
 );
 
 export const Component: React.FC = () => {
-  const navigate = useNavigate();
-
-  const checkConfig = useSelector(selectConfigUrl);
-
-  useEffect(() => {
-    if (checkConfig) {
-      navigate('/scans');
-    }
-  }, [checkConfig, navigate]);
   return (
     <div className="flex justify-center h-[100vh] items-center p-4">
       <Card className="max-w-sm border-0 sm:border-2 sm:bg-base-200">

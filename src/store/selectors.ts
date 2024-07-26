@@ -7,5 +7,5 @@ export const selectNotification = createSelector(
 );
 export const selectConfigUrl = createSelector(
   (ro: RootState) => ro.config,
-  ({ url }) => url
+  ({ url, loading }) => (loading ? undefined : JSON.stringify({ url }))
 );

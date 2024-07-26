@@ -25,8 +25,9 @@ export const Component: React.FC = () => {
     for (const { rawValue, format } of detectedCodes) {
       if (['qr_code', 'rm_qr_code', 'micro_qr_code'].includes(format)) {
         const config = JSON.parse(rawValue) as Record<string, string>;
+        console.log({ config });
         dispatch(setUrlConfig(config.url));
-        navigate('..');
+        navigate('/scans');
       }
     }
   };
