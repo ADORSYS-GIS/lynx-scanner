@@ -1,4 +1,4 @@
-import type { Scan } from '@api/scans.api.gen.ts';
+import type { Scan } from '@api';
 import { Button, Pagination } from 'react-daisyui';
 import { ArrowLeft, ArrowRight } from 'react-feather';
 
@@ -9,7 +9,7 @@ export interface ScanListDumpProps {
   onPrev: () => void;
 }
 
-export function ScanListDump({
+export function ScanListSimple({
   scans,
   onPrev,
   onNext,
@@ -25,11 +25,13 @@ export function ScanListDump({
       ))}
 
       <Pagination>
-        <Button onClick={onPrev} className="join-item">
+        <Button color="primary" onClick={onPrev} className="join-item">
           <ArrowLeft />
         </Button>
-        <Button className="join-item">Page {page}</Button>
-        <Button onClick={onNext} className="join-item">
+        <Button color="primary" className="join-item">
+          Page {page}
+        </Button>
+        <Button color="primary" onClick={onNext} className="join-item">
           <ArrowRight />
         </Button>
       </Pagination>

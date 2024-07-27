@@ -1,0 +1,7 @@
+{
+  "page": "Welcome to Lynx!",
+  "description": "Please scan the QR Code for configuration",
+  "dark": "Dark Mode",
+  "light": "Light Mode",
+  "valantine": "Valantine Mode"
+}

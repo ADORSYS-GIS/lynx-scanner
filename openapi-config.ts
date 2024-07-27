@@ -1,10 +1,10 @@
 import type { ConfigFile } from '@rtk-query/codegen-openapi';
 
-const baseDir = process.env.GEN_FOLDER!;
+const baseDir = './src/store/api/gen';
 
 const config: ConfigFile = {
   schemaFile: './openapi.yaml',
-  apiFile: './src/store/emptyApi.ts',
+  apiFile: './src/store/api/empty.api.ts',
   apiImport: 'emptySplitApi',
   hooks: true,
   outputFiles: {
