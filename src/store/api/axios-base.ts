@@ -26,7 +26,10 @@ export const axiosBaseQuery =
         params,
         headers,
       });
-      return { data: JSON.parse(result.data) };
+      if (typeof result.data === 'string') {
+        return { data: JSON.parse(result.data) };
+      }
+      return { data: result.data };
     } catch (error) {
       if (error instanceof SyntaxError) {
         return {

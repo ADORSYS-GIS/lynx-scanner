@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchConfigUrl } from '@store/thunks';
+import { PURGE } from 'redux-persist';
 
 export interface ConfigState {
   url?: string;
@@ -32,6 +33,10 @@ const configSlice = createSlice({
       })
       .addCase(fetchConfigUrl.pending, (state) => {
         // Add user to the state array
+        state.loading = true;
+      })
+      .addCase(PURGE, (state) => {
+        state.url = undefined;
         state.loading = true;
       });
   },

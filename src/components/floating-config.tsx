@@ -10,14 +10,14 @@ interface ThemeButtonProps {
 }
 
 function ThemeButton({ themeName }: ThemeButtonProps) {
-  const { t } = useTranslation();
+  const { t: tC } = useTranslation('config');
   return (
     <button
       data-set-theme={'lynx-' + themeName}
       data-act-class={'lynx-' + themeName}
     >
       <BarChart2 />
-      {t('config.' + themeName)}
+      {tC(themeName)}
     </button>
   );
 }

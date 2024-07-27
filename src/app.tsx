@@ -8,9 +8,9 @@ import { Notification } from '@components/notification.tsx';
  */
 export function App(): JSX.Element {
   return (
-    <div>
+    <>
       <RouterProvider router={router} />
       <Notification />
-    </div>
+    </>
   );
 }

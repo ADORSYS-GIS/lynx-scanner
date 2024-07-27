@@ -25,11 +25,13 @@ export function ScanListSimple({
       ))}
 
       <Pagination>
-        <Button onClick={onPrev} className="join-item">
+        <Button color="primary" onClick={onPrev} className="join-item">
           <ArrowLeft />
         </Button>
-        <Button className="join-item">Page {page}</Button>
-        <Button onClick={onNext} className="join-item">
+        <Button color="primary" className="join-item">
+          Page {page}
+        </Button>
+        <Button color="primary" onClick={onNext} className="join-item">
           <ArrowRight />
         </Button>
       </Pagination>

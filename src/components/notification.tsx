@@ -3,7 +3,7 @@ import {
   removeNotification,
   useAppDispatch,
   useAppSelector,
-} from '../store';
+} from '@store';
 import { Alert, Button, Toast } from 'react-daisyui';
 import { useCallback } from 'react';
 import { X } from 'react-feather';
@@ -19,8 +19,8 @@ export function Notification() {
   );
   return (
     <Toast horizontal="start" vertical="bottom">
-      {notifications.map((notification, index) => (
-        <Alert key={index} status="error">
+      {notifications.map((notification) => (
+        <Alert key={notification.id} status="error">
           <Button
             onClick={remove(notification.id)}
             size="sm"
