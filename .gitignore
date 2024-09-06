@@ -131,3 +131,5 @@ docs/gen
 # API codegen files
 *.gen.*
 gen
+
+.certs

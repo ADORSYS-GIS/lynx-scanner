@@ -1,4 +1,5 @@
 import './index.scss';
+import 'barcode-detector/side-effects';
 import { isElectron, setupLogging } from '@shared';
 import * as Sentry from '@sentry/react';
 import { i18nFn } from '@i18n';
