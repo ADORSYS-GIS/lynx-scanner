@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { reducerConfig, reducerNotification } from '@store/slices';
+import { reducerAI, reducerConfig, reducerNotification } from '@store/slices';
 import { emptySplitApi } from '@store/api/empty.api.ts';
 import { rtkQueryErrorLogger } from '@store/middlewares.ts';
 import {
@@ -20,6 +20,7 @@ import { PersistConfig } from 'redux-persist/es/types';
 const rootReducer = combineReducers({
   notification: reducerNotification,
   config: reducerConfig,
+  ai: reducerAI,
   // Add the generated reducer as a specific top-level slice
   [emptySplitApi.reducerPath]: emptySplitApi.reducer,
 });

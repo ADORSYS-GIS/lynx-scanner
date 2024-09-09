@@ -1,7 +1,12 @@
 import { useCallback } from 'react';
-import { fetchConfigUrl } from './thunks';
+import { extractBarcode, extractText, fetchConfigUrl } from './thunks';
 import { useAppDispatch, useAppSelector } from './types';
-import { selectConfigUrl } from '@store/selectors.ts';
+import {
+  selectAiData,
+  selectAiLoadingState,
+  selectConfigUrl,
+} from '@store/selectors.ts';
+import { addNotification } from '@store/slices';
 
 export function useFetchConfigUrl() {
   const dispatch = useAppDispatch();
@@ -12,4 +17,33 @@ export function useFetchConfigUrl() {
 
 export function useConfigData() {
   return useAppSelector(selectConfigUrl);
+}
+
+export function useExtractText() {
+  const dispatch = useAppDispatch();
+  return useCallback(
+    (imgUri: string) => {
+      dispatch(extractText({ imgUri }));
+      dispatch(extractBarcode({ imgUri }));
+    },
+    [dispatch]
+  );
+}
+
+export function useExtractDataFromText() {
+  return useAppSelector(selectAiData);
+}
+
+export function useAiLoadingState() {
+  return useAppSelector(selectAiLoadingState);
+}
+
+export function useAddErrorNotification() {
+  const dispatch = useAppDispatch();
+  return useCallback(
+    (msg: string) => {
+      dispatch(addNotification(msg));
+    },
+    [dispatch]
+  );
 }
