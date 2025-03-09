@@ -1,19 +1,20 @@
 import { useCallback } from 'react';
-import { Button } from 'react-daisyui';
-import { useNavigate } from 'react-router-dom';
+import { Search } from 'react-feather';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 export default function ConfigScanButton() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const scanConfigAndPersist = useCallback(
     () => navigate('/config/scan'),
-    [navigate]
+    [navigate],
   );
 
   return (
-    <Button fullWidth onClick={scanConfigAndPersist} color="primary">
-      {t('action.scan')}
-    </Button>
+    <button className='btn btn-soft btn-primary' onClick={scanConfigAndPersist}>
+      <span>{t('action.scan')}</span>
+      <Search />
+    </button>
   );
 }

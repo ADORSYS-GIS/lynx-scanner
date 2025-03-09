@@ -1,12 +1,12 @@
+import axios from 'axios';
 import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import ChainedBackend, { ChainedBackendOptions } from 'i18next-chained-backend';
+import HttpApi, { HttpBackendOptions } from 'i18next-http-backend';
 import LocalStorageBackend, {
   LocalStorageBackendOptions,
 } from 'i18next-localstorage-backend';
-import HttpApi, { HttpBackendOptions } from 'i18next-http-backend';
-import axios from 'axios';
+import { initReactI18next } from 'react-i18next';
 
 const axiosInstance = axios.create();
 
@@ -19,7 +19,7 @@ export async function i18nFn() {
       fallbackLng: 'en',
       ns: ['common'],
       defaultNS: ['common'],
-      supportedLngs: ['en', 'de', 'fr'],
+      supportedLngs: ['en', 'de'],
       interpolation: {
         escapeValue: false,
       },

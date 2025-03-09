@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import { Header } from '../components/header.tsx';
+import { setUrlConfig, useAppDispatch } from '@store';
 import {
   IDetectedBarcode,
   Scanner,
   useDevices,
 } from '@yudiel/react-qr-scanner';
-import { Button, Dropdown } from 'react-daisyui';
+import React, { useState } from 'react';
 import { Camera } from 'react-feather';
-import { setUrlConfig, useAppDispatch } from '@store';
 import { useNavigate } from 'react-router-dom';
+import { Header } from '../components/header.tsx';
 
 /**
  * ScanConfig screen component
@@ -19,7 +18,7 @@ export const Component: React.FC = () => {
   const navigate = useNavigate();
   const devices = useDevices();
   const [deviceId, setDeviceId] = useState(
-    devices.length > 0 ? devices[0].deviceId : ''
+    devices.length > 0 ? devices[0].deviceId : '',
   );
   const onScan = (detectedCodes: IDetectedBarcode[]) => {
     for (const { rawValue, format } of detectedCodes) {
@@ -32,33 +31,32 @@ export const Component: React.FC = () => {
     }
   };
   return (
-    <div className="flex flex-col">
-      <div className="p-4">
+    <div className='flex flex-col'>
+      <div className='p-4'>
         <Header
-          title="Configs"
-          back=".."
+          title='Configs'
+          back='..'
           trailing={
-            <Dropdown horizontal="left">
-              <Dropdown.Toggle button={false}>
-                <Button color="ghost" shape="circle">
-                  <Camera />
-                </Button>
-              </Dropdown.Toggle>
-              <Dropdown.Menu className="w-72 z-50">
+            <details className='dropdown dropdown-left'>
+              <summary className='btn btn-circle btn-soft btn-primary'>
+                <Camera />
+              </summary>
+
+              <ul className='menu dropdown-content bg-base-200 rounded-box shadow-sm mr-2 w-72 z-50'>
                 {devices.map(({ deviceId, label }) => (
-                  <Dropdown.Item anchor={false} key={deviceId}>
+                  <li key={deviceId}>
                     <button onClick={() => setDeviceId(deviceId)}>
                       <Camera />
-                      {label}
+                      <span className='line-clamp-1'>{label}</span>
                     </button>
-                  </Dropdown.Item>
+                  </li>
                 ))}
-              </Dropdown.Menu>
-            </Dropdown>
+              </ul>
+            </details>
           }
         />
       </div>
-      <div className="bg-primary h-[calc(100vh-80px)]">
+      <div className='bg-primary h-[calc(100vh-80px)]'>
         <Scanner
           components={{
             audio: false,

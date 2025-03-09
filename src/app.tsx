@@ -1,7 +1,7 @@
+import { Notification } from '@components/notification';
 import { JSX } from 'react';
 import { RouterProvider } from 'react-router-dom';
-import { router } from './router.tsx';
-import { Notification } from '@components/notification.tsx';
+import { router } from './router';
 
 /**
  * The main application component.

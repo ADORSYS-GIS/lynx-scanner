@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { Button } from 'react-daisyui';
 import { ArrowRight } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,9 +7,9 @@ export default function ToListScanButton() {
   const toScans = useCallback(() => navigate('/scans'), [navigate]);
 
   return (
-    <Button fullWidth color="primary" onClick={toScans}>
+    <button className='btn btn-soft btn-primary btn-block' onClick={toScans}>
       <span>To Scans</span>
       <ArrowRight />
-    </Button>
+    </button>
   );
 }

@@ -1,33 +1,30 @@
 import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
-import { FloatingConfig } from '@components/floating-config.tsx';
 
 export const router = createBrowserRouter([
   {
     element: (
-      <>
-        <FloatingConfig />
-        <div className="flex flex-col gap-2 md:gap-4">
-          <Outlet />
-        </div>
-      </>
+      <div className='flex flex-col gap-2 md:gap-4'>
+        <Outlet />
+      </div>
     ),
     children: [
       {
         path: '/scans',
         element: (
-          <div className="p-4">
-            <div className="flex flex-col gap-2 md:gap-4">
+          <div className='p-4'>
+            <div className='flex flex-col gap-2 md:gap-4'>
               <Outlet />
             </div>
           </div>
         ),
         children: [
           {
-            path: 'add',
+            path: 'new',
             lazy: () => import('@screens/scan.screen'),
           },
           {
             path: '',
+            index: true,
             lazy: () => import('@screens/scan-list.screen'),
           },
         ],
@@ -49,6 +46,6 @@ export const router = createBrowserRouter([
   },
   {
     path: '*',
-    Component: () => <Navigate to="/config" replace={true} />,
+    Component: () => <Navigate to='/config' replace={true} />,
   },
 ]);

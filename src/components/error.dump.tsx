@@ -1,5 +1,4 @@
 import { useEffect, useMemo } from 'react';
-import { Alert } from 'react-daisyui';
 
 export interface ErrorDumpProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -24,5 +23,5 @@ export function ErrorDump({ error }: ErrorDumpProps) {
     return JSON.stringify(error);
   }, [error]);
 
-  return <Alert status="error">{errorMessage}</Alert>;
+  return <div className='alert alert-error'>{errorMessage}</div>;
 }

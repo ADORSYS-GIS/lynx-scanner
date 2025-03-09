@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+    groups:
+      react-eslint:
+        patterns:
+          - 'react*'
+          - 'eslint*'
+        update-types:
+          - 'minor'
+          - 'patch'
+    ignore:
+      - dependency-name: 'react*'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'eslint*'
+        update-types: ['version-update:semver-major']
+
+  - package-ecosystem: github-actions
+    directory: '/'
+    schedule:
+      interval: daily
+      time: '08:00'

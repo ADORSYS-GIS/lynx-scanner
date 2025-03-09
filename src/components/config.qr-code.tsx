@@ -1,7 +1,6 @@
 import { useConfigData, useFetchConfigUrl } from '@store';
-import { Loading } from 'react-daisyui';
-import QRCode from 'react-qr-code';
 import { useEffect } from 'react';
+import QRCode from 'react-qr-code';
 
 export default function ConfigQrCode() {
   const getUrl = useFetchConfigUrl();
@@ -9,7 +8,7 @@ export default function ConfigQrCode() {
   useEffect(() => getUrl(), [getUrl]);
   return (
     <figure>
-      {!url && <Loading />}
+      {!url && <span className='loading loading-md' />}
       {url && <QRCode value={url} />}
     </figure>
   );
