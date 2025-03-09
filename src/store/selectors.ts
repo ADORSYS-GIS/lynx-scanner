@@ -32,3 +32,25 @@ export const selectAiLoadingState = createSelector(
     return total;
   },
 );
+
+export const selectAiData = createSelector(
+  (ro: RootState) => ro.ai,
+  ({ loadingData, loadingBarCodes, data, barCodes }) =>
+    loadingData || loadingBarCodes
+      ? undefined
+      : {
+          data,
+          barCodes,
+        }
+);
+
+export const selectAiLoadingState = createSelector(
+  (ro: RootState) => ro.ai,
+  ({ loadingData, loadingBarCodes, loadingText }) => {
+    let total = 0;
+    if (!loadingData) total++;
+    if (!loadingBarCodes) total++;
+    if (!loadingText) total++;
+    return total;
+  }
+);
