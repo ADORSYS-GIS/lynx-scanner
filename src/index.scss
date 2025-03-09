@@ -1,3 +1,37 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+@plugin "daisyui" {
+  themes:
+    emerald --default,
+    luxury --prefersdark,
+    valentine;
+}
+
+.app-title {
+  @apply text-2xl font-thin tracking-widest;
+}
+
+[data-theme='luxury'] {
+  .is-luxury {
+    @apply block;
+  }
+}
+
+[data-theme='valentine'] {
+  .is-valentine {
+    @apply block;
+  }
+}
+
+[data-theme='emerald'] {
+  .is-emerald {
+    @apply block;
+  }
+}
+
+.btn {
+  svg {
+    @apply size-[1.4em];
+  }
+}

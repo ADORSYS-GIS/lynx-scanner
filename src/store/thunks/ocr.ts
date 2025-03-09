@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { createWorker } from 'tesseract.js';
 import { extractDataFromText } from '@store/thunks/ner.ts';
 import { BarcodeDetector } from 'barcode-detector/pure';
+import { createWorker } from 'tesseract.js';
 
 export interface ExtractTextProps {
   imgUri: string;
@@ -42,7 +42,7 @@ export const extractText = createAsyncThunk<string, ExtractTextProps>(
     // Dispatch the extracted text
     dispatch(extractDataFromText({ text }));
     return text;
-  }
+  },
 );
 
 export const extractBarcode = createAsyncThunk<string[], ExtractTextProps>(
@@ -57,5 +57,5 @@ export const extractBarcode = createAsyncThunk<string[], ExtractTextProps>(
       console.error(e);
       throw e;
     }
-  }
+  },
 );

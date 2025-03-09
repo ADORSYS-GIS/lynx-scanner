@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
 import { useGetScansQuery } from '@api';
-import { Loading } from 'react-daisyui';
-import { ScanListSimple } from '@components/scan-list.simple.tsx';
+import { ScanListSimple } from '@components/scan-list.simple';
+import React, { useState } from 'react';
 import { Plus } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
-import { Header } from '../components/header.tsx';
+import { Header } from '../components/header';
 
 export const Component: React.FC = () => {
   const [page, setPage] = useState(0);
@@ -17,11 +16,11 @@ export const Component: React.FC = () => {
       <Header
         back={false}
         Icon={Plus}
-        title="Scans"
-        onIconClick={() => navigate('/scans/add')}
+        title='Scans'
+        onIconClick={() => navigate('/scans/new')}
       />
 
-      {isLoading && <Loading />}
+      {isLoading && <span className='loading loading-sm' />}
 
       {scans && (
         <ScanListSimple

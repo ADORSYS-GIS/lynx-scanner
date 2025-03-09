@@ -18,13 +18,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:prettier/recommended',
   ],
-  ignorePatterns: [
-    'dist',
-    '.eslintrc.cjs',
-    'node_modules',
-    'docs/gen',
-    '.idea',
-  ],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'node_modules', 'gen', '.idea'],
   plugins: ['react', 'react-refresh', 'react-hooks', '@typescript-eslint'],
   rules: {
     'react-refresh/only-export-components': [

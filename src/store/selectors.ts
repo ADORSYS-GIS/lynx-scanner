@@ -3,12 +3,12 @@ import { RootState } from '@store/types.ts';
 
 export const selectNotification = createSelector(
   (ro: RootState) => ro.notification.messages,
-  (p) => p.filter(({ message }) => message.length > 0)
+  (p) => p.filter(({ message }) => message.length > 0),
 );
 
 export const selectConfigUrl = createSelector(
   (ro: RootState) => ro.config,
-  ({ url, loading }) => (loading ? undefined : JSON.stringify({ url }))
+  ({ url, loading }) => (loading ? undefined : JSON.stringify({ url })),
 );
 
 export const selectAiData = createSelector(
@@ -19,7 +19,7 @@ export const selectAiData = createSelector(
       : {
           data,
           barCodes,
-        }
+        },
 );
 
 export const selectAiLoadingState = createSelector(
@@ -30,5 +30,5 @@ export const selectAiLoadingState = createSelector(
     if (!loadingBarCodes) total++;
     if (!loadingText) total++;
     return total;
-  }
+  },
 );

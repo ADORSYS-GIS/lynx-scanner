@@ -1,21 +1,21 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { reducerAI, reducerConfig, reducerNotification } from '@store/slices';
 import { emptySplitApi } from '@store/api/empty.api.ts';
 import { rtkQueryErrorLogger } from '@store/middlewares.ts';
+import { reducerAI, reducerConfig, reducerNotification } from '@store/slices';
+import logger from 'redux-logger';
 import {
   FLUSH,
   PAUSE,
   PERSIST,
-  persistReducer,
-  persistStore,
   PURGE,
   REGISTER,
   REHYDRATE,
+  persistReducer,
+  persistStore,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 import { PersistConfig } from 'redux-persist/es/types';
+import storage from 'redux-persist/lib/storage';
 
 const rootReducer = combineReducers({
   notification: reducerNotification,

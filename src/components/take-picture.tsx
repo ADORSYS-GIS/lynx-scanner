@@ -1,7 +1,7 @@
-import Camera, { CameraProps } from 'react-html5-camera-photo';
 import { useAddErrorNotification, useExtractText } from '@store';
-import 'react-html5-camera-photo/build/css/index.css';
 import { useCallback } from 'react';
+import Camera, { CameraProps } from 'react-html5-camera-photo';
+import 'react-html5-camera-photo/build/css/index.css';
 
 interface TakePictureProps {
   onTakePhoto: Required<CameraProps>['onTakePhoto'];
@@ -15,14 +15,14 @@ export function TakePicture({ onTakePhoto }: TakePictureProps) {
       extractText(dataUri);
       onTakePhoto(dataUri);
     },
-    [extractText, onTakePhoto]
+    [extractText, onTakePhoto],
   );
 
   const onCameraError: Required<CameraProps>['onCameraError'] = useCallback(
     (error) => {
       addErrorNotification(error.message);
     },
-    [addErrorNotification]
+    [addErrorNotification],
   );
 
   return (

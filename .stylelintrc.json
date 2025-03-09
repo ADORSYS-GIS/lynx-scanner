@@ -1,11 +1,48 @@
 {
   "plugins": ["stylelint-plugin-defensive-css"],
   "extends": [
+    "stylelint-config-recommended",
     "stylelint-config-standard-scss",
     "stylelint-config-tailwindcss/scss"
   ],
   "rules": {
     "plugin/use-defensive-css": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
+    "at-rule-descriptor-no-unknown": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
+    "at-rule-descriptor-value-no-unknown": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
+    "at-rule-no-deprecated": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
+    "at-rule-prelude-no-invalid": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
+    "declaration-property-value-keyword-no-deprecated": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
+    "property-no-unknown": [
       true,
       {
         "severity": "warning"

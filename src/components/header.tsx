@@ -1,7 +1,9 @@
-import { Button } from 'react-daisyui';
+import { LanguageSwitch } from '@components/language-switch.tsx';
+import { ThemeToggle } from '@components/theme.tsx';
+import { ReactNode } from 'react';
 import { ArrowLeft, Icon } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
-import { ReactNode } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 interface HeaderProps {
   title: string;
@@ -31,19 +33,31 @@ export function Header({
     nav('..');
   };
   return (
-    <div className={`flex items-center ${back ? '' : 'justify-between'}`}>
+    <div
+      className={twMerge('flex items-center gap-4', [
+        back && 'justify-between',
+      ])}>
       {back && (
-        <Button color="ghost" onClick={navBack} shape="circle">
+        <button
+          className='btn btn-soft btn-primary btn-circle'
+          color='ghost'
+          onClick={navBack}
+          type='submit'>
           <ArrowLeft />
-        </Button>
+        </button>
       )}
-      <h1 className="text-2xl ml-2">{title}</h1>
-      <div className="mx-auto" />
+      <h1 className='text-2xl ml-2'>{title}</h1>
+      <div className='mx-auto' />
       {!back && Icon && (
-        <Button color="ghost" onClick={onIconClick} shape="circle">
+        <button
+          className='btn btn-soft btn-primary btn-circle'
+          onClick={onIconClick}
+          type='submit'>
           <Icon />
-        </Button>
+        </button>
       )}
+      <ThemeToggle />
+      <LanguageSwitch />
       {trailing}
     </div>
   );

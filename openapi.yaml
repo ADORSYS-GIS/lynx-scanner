@@ -90,6 +90,7 @@ paths:
             application/json:
               schema:
                 type: array
+                minItems: 10
                 items:
                   $ref: '#/components/schemas/Scan'
         '500':

@@ -1,0 +1,13 @@
+services:
+  # This is a mock server for the SMS API
+  prism:
+    image: stoplight/prism:latest
+    ports:
+      - '4010:4010'
+    command:
+      - mock
+      - -h
+      - 0.0.0.0
+      - /openapi.yaml
+    volumes:
+      - ./openapi.yaml:/openapi.yaml

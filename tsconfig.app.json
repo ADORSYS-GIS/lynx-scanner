@@ -1,0 +1,32 @@
+{
+  "extends": ["@tsconfig/vite-react/tsconfig.json"],
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noUnusedLocals": false,
+    "paths": {
+      "@api/*": ["src/store/api/*"],
+      "@api": ["src/store/api"],
+      "@shared/*": ["src/shared/*"],
+      "@shared": ["src/shared"],
+      "@store/*": ["src/store/*"],
+      "@store": ["src/store"],
+      "@screens/*": ["src/screens/*"],
+      "@screens": ["src/screens"],
+      "@i18n/*": ["src/i18n/*"],
+      "@i18n": ["src/i18n"],
+      "@components/*": ["src/components/*"],
+      "@components": ["src/components"],
+      "@assets/*": ["src/assets/*"],
+      "@assets": ["src/assets"]
+    },
+    "baseUrl": "./"
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "coverage",
+    "storybook-static",
+    "public",
+    "**/*.test.{ts,tsx}"
+  ]
+}

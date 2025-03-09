@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { PURGE } from 'redux-persist';
 import {
   extractBarcode,
   extractDataFromText,
   extractText,
 } from '@store/thunks';
+import { PURGE } from 'redux-persist';
 
 export interface AIState {
   text?: string;

@@ -1,12 +1,12 @@
 import {
-  selectNotification,
   removeNotification,
+  selectNotification,
   useAppDispatch,
   useAppSelector,
 } from '@store';
-import { Alert, Button, Toast } from 'react-daisyui';
 import { useCallback } from 'react';
 import { X } from 'react-feather';
+import { twMerge } from 'tailwind-merge';
 
 export function Notification() {
   const notifications = useAppSelector(selectNotification);
@@ -15,23 +15,27 @@ export function Notification() {
     (id: string) => () => {
       dispatch(removeNotification(id));
     },
-    [dispatch]
+    [dispatch],
   );
   return (
-    <Toast horizontal="start" vertical="bottom">
+    <div className='toast toast-start toast-bottom'>
       {notifications.map((notification) => (
-        <Alert key={notification.id} status="error">
-          <Button
-            onClick={remove(notification.id)}
-            size="sm"
-            color="ghost"
-            shape="circle"
-          >
+        <div
+          key={notification.id}
+          className={twMerge(
+            'alert',
+            notification.type === 'success' && 'alert-success',
+            notification.type === 'error' && 'alert-error',
+            notification.type === 'info' && 'alert-info',
+          )}>
+          <button
+            className='btn btn-sm btn-soft btn-circle'
+            onClick={remove(notification.id)}>
             <X />
-          </Button>
+          </button>
           <span>{notification.message}</span>
-        </Alert>
+        </div>
       ))}
-    </Toast>
+    </div>
   );
 }

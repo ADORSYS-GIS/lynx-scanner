@@ -4,6 +4,7 @@ import { fetchConfigUrl } from '@store/thunks';
 interface NotifMessage {
   id: string;
   message: string;
+  type?: 'error' | 'success' | 'info';
 }
 
 export interface NotificationState {

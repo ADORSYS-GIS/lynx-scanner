@@ -1,6 +1,6 @@
 import type { Scan } from '@api';
-import { Button, Pagination } from 'react-daisyui';
 import { ArrowLeft, ArrowRight } from 'react-feather';
+import { Link } from 'react-router-dom';
 
 export interface ScanListDumpProps {
   scans: Scan[];
@@ -16,25 +16,38 @@ export function ScanListSimple({
   page,
 }: ScanListDumpProps) {
   return (
-    <div>
-      {scans.map((scan) => (
-        <div key={scan.id} className="p-4 border border-gray-300 rounded-md">
-          <h3 className="font-bold">{scan.title}</h3>
-          <pre>{JSON.stringify(scan.meta_data, null, 4)}</pre>
-        </div>
-      ))}
+    <div className='flex flex-col gap-4'>
+      <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4'>
+        {scans.map((scan) => (
+          <div key={scan.id} className='card card-dash'>
+            <div className='card-body'>
+              <h3 className='card-title'>{scan.title}</h3>
+              <p>
+                <pre>{JSON.stringify(scan.meta_data, null, 4)}</pre>
+              </p>
+              <div className='card-actions'>
+                <Link
+                  to={`/scans/${scan.id}`}
+                  className='btn btn-soft btn-primary'>
+                  View Scan
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
 
-      <Pagination>
-        <Button color="primary" onClick={onPrev} className="join-item">
+      <div className='join'>
+        <button onClick={onPrev} className='join-item btn btn-soft'>
           <ArrowLeft />
-        </Button>
-        <Button color="primary" className="join-item">
-          Page {page}
-        </Button>
-        <Button color="primary" onClick={onNext} className="join-item">
+        </button>
+
+        <button className='join-item btn btn-soft'>Page {page}</button>
+
+        <button onClick={onNext} className='join-item btn btn-soft'>
           <ArrowRight />
-        </Button>
-      </Pagination>
+        </button>
+      </div>
     </div>
   );
 }
