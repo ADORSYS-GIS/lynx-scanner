@@ -53,6 +53,7 @@ export function CameraInput(props: CameraInputProps) {
             </button>
           )}
           {extractedData && !shouldTake && (
+            <pre className='bg-base-200 rounded-xl overflow-scroll h-[100px] w-full'>
               {JSON.stringify(extractedData, null, 2)}
             </pre>
           )}

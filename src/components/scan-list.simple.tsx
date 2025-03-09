@@ -1,6 +1,6 @@
 import type { Scan } from '@api';
 import { ArrowLeft, ArrowRight } from 'react-feather';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export interface ScanListDumpProps {
   scans: Scan[];
@@ -15,6 +15,7 @@ export function ScanListSimple({
   onNext,
   page,
 }: ScanListDumpProps) {
+  const location = useLocation();
   return (
     <div className='flex flex-col gap-4'>
       <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4'>
@@ -22,12 +23,12 @@ export function ScanListSimple({
           <div key={scan.id} className='card card-dash'>
             <div className='card-body'>
               <h3 className='card-title'>{scan.title}</h3>
-              <p>
-                <pre>{JSON.stringify(scan.meta_data, null, 4)}</pre>
-              </p>
+              <p>Some description of the scan. Lorem ipsum dolor sit amet,</p>
+              <pre>{JSON.stringify(scan.meta_data, null, 4)}</pre>
               <div className='card-actions'>
                 <Link
                   to={`/scans/${scan.id}`}
+                  state={{ background: location }}
                   className='btn btn-soft btn-primary'>
                   View Scan
                 </Link>
