@@ -11,7 +11,6 @@ import mkcert from 'vite-plugin-mkcert';
 import { VitePWA } from 'vite-plugin-pwa';
 import { robots } from 'vite-plugin-robots';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import mkcert from 'vite-plugin-mkcert';
 
 const baseEncode = (plaintext: string): string => {
   const base =

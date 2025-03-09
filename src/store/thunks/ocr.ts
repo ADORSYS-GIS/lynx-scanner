@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { extractDataFromText } from '@store/thunks/ner.ts';
-import { BarcodeDetector } from 'barcode-detector/pure';
+import { BarcodeDetector } from 'barcode-detector';
 import { createWorker } from 'tesseract.js';
 
 export interface ExtractTextProps {
@@ -49,9 +49,13 @@ export const extractBarcode = createAsyncThunk<string[], ExtractTextProps>(
   'ai/extractBarcode',
   async ({ imgUri }) => {
     try {
-      const barcodeDetector = new BarcodeDetector();
+      const formats = await BarcodeDetector.getSupportedFormats();
+      const barcodeDetector = new BarcodeDetector({
+        formats: [...formats],
+      });
       const blob = await b64toBlob(imgUri);
       const barcodes = await barcodeDetector.detect(blob);
+
       return barcodes.map((barcode) => barcode.rawValue);
     } catch (e) {
       console.error(e);

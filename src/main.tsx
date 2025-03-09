@@ -2,7 +2,6 @@ import { i18nFn } from '@i18n';
 import * as Sentry from '@sentry/react';
 import { isElectron, setupLogging } from '@shared';
 import { persistor, store } from '@store';
-import 'barcode-detector/side-effects';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { I18nextProvider } from 'react-i18next';
