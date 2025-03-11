@@ -1,7 +1,6 @@
-import { CameraInput } from '@components/camera-input.tsx';
+import { CameraInput } from '@components/camera-input';
 import React from 'react';
 import { Header } from '../components/header.tsx';
-import { CameraInput } from '@components/camera-input.tsx';
 
 /**
  * Scan screen

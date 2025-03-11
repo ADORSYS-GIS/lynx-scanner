@@ -1,12 +1,10 @@
+import { ModalLayout } from '@components/route-ui.modal.tsx';
+import { RootScreen } from '@screens/root.screen';
 import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
 
 export const router = createBrowserRouter([
   {
-    element: (
-      <div className='flex flex-col gap-2 md:gap-4'>
-        <Outlet />
-      </div>
-    ),
+    element: <RootScreen />,
     children: [
       {
         path: '/scans',
@@ -21,6 +19,17 @@ export const router = createBrowserRouter([
           {
             path: 'new',
             lazy: () => import('@screens/scan.screen'),
+          },
+          {
+            path: ':scanId',
+            element: <ModalLayout />,
+            children: [
+              {
+                path: '',
+                index: true,
+                lazy: () => import('@screens/single-scan.screen'),
+              },
+            ],
           },
           {
             path: '',
