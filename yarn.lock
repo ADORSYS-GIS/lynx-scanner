@@ -67,7 +67,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apidevtools/swagger-parser@npm:^10.0.2, @apidevtools/swagger-parser@npm:^10.1.0":
+"@apidevtools/swagger-parser@npm:^10.0.2, @apidevtools/swagger-parser@npm:^10.1.1":
   version: 10.1.1
   resolution: "@apidevtools/swagger-parser@npm:10.1.1"
   dependencies:
@@ -2782,20 +2782,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rtk-query/codegen-openapi@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "@rtk-query/codegen-openapi@npm:1.2.0"
+"@rtk-query/codegen-openapi@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@rtk-query/codegen-openapi@npm:2.0.0"
   dependencies:
     "@apidevtools/swagger-parser": "npm:^10.0.2"
     commander: "npm:^6.2.0"
-    oazapfts: "npm:^4.8.0"
-    prettier: "npm:^2.2.1"
+    lodash.camelcase: "npm:^4.3.0"
+    oazapfts: "npm:^6.1.0"
+    prettier: "npm:^3.2.5"
     semver: "npm:^7.3.5"
     swagger2openapi: "npm:^7.0.4"
-    typescript: "npm:^5.0.0"
+    typescript: "npm:^5.5.4"
   bin:
-    rtk-query-codegen-openapi: lib/bin/cli.js
-  checksum: 10c0/96db8589c933fffd51d84bb2bfc1b9440213341e6ef3945a67deb63d25cc4d0c056741083db41ec700e2eed6fbef2a532774025f55e700856476db81b90a755a
+    rtk-query-codegen-openapi: lib/bin/cli.mjs
+  checksum: 10c0/86cd353d21b64610f9df3469860d1c5ef4d87a507099e2bc72cba697083934b39f195fe7a8178d46a8bf684f9b6dc99b468fe9c77b5282fb06046f35cf4dbcf3
   languageName: node
   linkType: hard
 
@@ -8718,7 +8719,7 @@ __metadata:
     "@electron-toolkit/preload": "npm:^3.0.1"
     "@eslint/eslintrc": "npm:^3.0.2"
     "@reduxjs/toolkit": "npm:^2.2.6"
-    "@rtk-query/codegen-openapi": "npm:^1.2.0"
+    "@rtk-query/codegen-openapi": "npm:^2.0.0"
     "@sentry/react": "npm:^7.114.0"
     "@sentry/tracing": "npm:^7.114.0"
     "@tailwindcss/postcss": "npm:^4.0.12"
@@ -9426,18 +9427,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"oazapfts@npm:^4.8.0":
-  version: 4.12.0
-  resolution: "oazapfts@npm:4.12.0"
+"oazapfts@npm:^6.1.0":
+  version: 6.2.1
+  resolution: "oazapfts@npm:6.2.1"
   dependencies:
-    "@apidevtools/swagger-parser": "npm:^10.1.0"
+    "@apidevtools/swagger-parser": "npm:^10.1.1"
     lodash: "npm:^4.17.21"
     minimist: "npm:^1.2.8"
     swagger2openapi: "npm:^7.0.8"
-    typescript: "npm:^5.2.2"
+    tapable: "npm:^2.2.1"
+    typescript: "npm:^5.7.3"
+  peerDependencies:
+    "@oazapfts/runtime": "*"
   bin:
-    oazapfts: lib/codegen/cli.js
-  checksum: 10c0/67807243c974453642019728bf76eefacb25d0f40ba02543cf182da215416a07ab4bf2d4d90c17c0ba1e54906e2ad0d5ab9782f87853e0ebe570d62d3b9a1867
+    oazapfts: cli.js
+  checksum: 10c0/5b3072b2dbf04a9a26366e37023f35331434d6552cd5c3a2c9a971f3e4617e198fcccad2d0d71be3ef54e84f931c0f51f15e4de9ce44ac942c8a32e9502bff59
   languageName: node
   linkType: hard
 
@@ -10340,16 +10344,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.2.1":
-  version: 2.8.8
-  resolution: "prettier@npm:2.8.8"
-  bin:
-    prettier: bin-prettier.js
-  checksum: 10c0/463ea8f9a0946cd5b828d8cf27bd8b567345cf02f56562d5ecde198b91f47a76b7ac9eae0facd247ace70e927143af6135e8cf411986b8cb8478784a4d6d724a
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^3.5.3":
+"prettier@npm:^3.2.5, prettier@npm:^3.5.3":
   version: 3.5.3
   resolution: "prettier@npm:3.5.3"
   bin:
@@ -12299,7 +12294,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tapable@npm:^2.2.0":
+"tapable@npm:^2.2.0, tapable@npm:^2.2.1":
   version: 2.2.1
   resolution: "tapable@npm:2.2.1"
   checksum: 10c0/bc40e6efe1e554d075469cedaba69a30eeb373552aaf41caeaaa45bf56ffacc2674261b106245bd566b35d8f3329b52d838e851ee0a852120acae26e622925c9
@@ -12753,7 +12748,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.0.0, typescript@npm:^5.2.2, typescript@npm:^5.4.5":
+"typescript@npm:^5.4.5, typescript@npm:^5.5.4, typescript@npm:^5.7.3":
   version: 5.8.2
   resolution: "typescript@npm:5.8.2"
   bin:
@@ -12763,7 +12758,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.0.0#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.2.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.4.5#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.4.5#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.5.4#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.7.3#optional!builtin<compat/typescript>":
   version: 5.8.2
   resolution: "typescript@patch:typescript@npm%3A5.8.2#optional!builtin<compat/typescript>::version=5.8.2&hash=5786d5"
   bin:
