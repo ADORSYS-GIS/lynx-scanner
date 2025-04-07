@@ -71,7 +71,7 @@
     "autoprefixer": "^10.4.20",
     "base-x": "^5.0.1",
     "cssnano": "^7.0.6",
-    "daisyui": "^5.0.0",
+    "daisyui": "^5.0.16",
     "electron-log": "^5.1.7",
     "esbuild-runner": "^2.2.2",
     "eslint": "8",
