@@ -9042,7 +9042,7 @@ __metadata:
     stylelint-config-tailwindcss: "npm:^1.0.0"
     stylelint-plugin-defensive-css: "npm:^1.0.3"
     tailwind-merge: "npm:^3.0.2"
-    tailwindcss: "npm:^4.0.12"
+    tailwindcss: "npm:^4.1.5"
     tesseract.js: "npm:^6.0.0"
     theme-change: "npm:^2.5.0"
     typedoc: "npm:^0.28.4"
@@ -12555,14 +12555,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:4.0.12, tailwindcss@npm:^4.0.12":
+"tailwindcss@npm:4.0.12":
   version: 4.0.12
   resolution: "tailwindcss@npm:4.0.12"
   checksum: 10c0/186e94e49b97e974daf999c350bfc50e727039f22c44baf9144b987b6c9b754bc983e8c9ef5b99a3ca2d399115eb7811967f66cf9e88edc08ac729746d80dc56
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:4.1.5":
+"tailwindcss@npm:4.1.5, tailwindcss@npm:^4.1.5":
   version: 4.1.5
   resolution: "tailwindcss@npm:4.1.5"
   checksum: 10c0/19fd0709f8c8d706d28a936f6ae7ad371d8586ea38e17a68ab5ba1c1c5d97ffcc8eba144f1b5c91c1534aa8df053a26c298863272a3357161a1dd9849b89339c
