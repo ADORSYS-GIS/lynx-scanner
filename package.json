@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",
-    "@sentry/react": "^9.5.0",
+    "@sentry/react": "^9.16.1",
     "@sentry/tracing": "^7.114.0",
     "@yudiel/react-qr-scanner": "^2.2.1",
     "axios": "^1.8.2",
