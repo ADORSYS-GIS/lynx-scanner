@@ -1468,6 +1468,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.27.1":
+  version: 7.27.1
+  resolution: "@babel/runtime@npm:7.27.1"
+  checksum: 10c0/530a7332f86ac5a7442250456823a930906911d895c0b743bf1852efc88a20a016ed4cd26d442d0ca40ae6d5448111e02a08dd638a4f1064b47d080e2875dc05
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.25.9, @babel/template@npm:^7.26.9":
   version: 7.26.9
   resolution: "@babel/template@npm:7.26.9"
@@ -7612,17 +7619,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^24.2.2":
-  version: 24.2.2
-  resolution: "i18next@npm:24.2.2"
+"i18next@npm:^25.1.3":
+  version: 25.1.3
+  resolution: "i18next@npm:25.1.3"
   dependencies:
-    "@babel/runtime": "npm:^7.23.2"
+    "@babel/runtime": "npm:^7.27.1"
   peerDependencies:
     typescript: ^5
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10c0/df2f08f7e7a813d0c38f67e9a9f67f6e86cd105a58b6419cab1118833e0a8ebf8d31e2df9033c12890fc1db18740fc227acc593c0a30887f8f7f94cd0293d051
+  checksum: 10c0/5a352c80b8950f40c8616bdb5b7422137ff02a4f68d6914089e86caddf65232b3d1d3ca9fd1fbc13eea28f83e28d7fd4f1286a0a6d7fdf2513c42205e542010b
   languageName: node
   linkType: hard
 
@@ -9024,7 +9031,7 @@ __metadata:
     eslint-plugin-react-refresh: "npm:^0.4.20"
     formik: "npm:^2.4.6"
     husky: "npm:^9.0.11"
-    i18next: "npm:^24.2.2"
+    i18next: "npm:^25.1.3"
     i18next-chained-backend: "npm:^4.6.2"
     i18next-http-backend: "npm:^3.0.2"
     i18next-localstorage-backend: "npm:^4.2.0"
